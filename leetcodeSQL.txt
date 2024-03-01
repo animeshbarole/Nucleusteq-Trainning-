@@ -3,9 +3,17 @@ Return the result table in any order.
 
 Ans : Select product_id from products where low_fats ="Y" AND recyclable="Y";
 
+Joins Practice : 
+ 
 2.Write a solution to find the IDs of the invalid tweets. The tweet is invalid if the number of characters used in the content of the tweet is strictly greater than 15.
 
 Return the result table in any order.
 
 Ans : select tweet_id from tweets where length(content)>15;
 
+
+3.Write a solution to report the product_name, year, and price for each sale_id in the Sales table.
+
+Return the resulting table in any order.
+
+Ans :select product_name,year,price from sales inner join product on sales.product_id=product.product_id;
