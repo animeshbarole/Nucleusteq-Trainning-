@@ -3,5 +3,9 @@ Return the result table in any order.
 
 Ans : Select product_id from products where low_fats ="Y" AND recyclable="Y";
 
-2.
+2.Write a solution to find the IDs of the invalid tweets. The tweet is invalid if the number of characters used in the content of the tweet is strictly greater than 15.
+
+Return the result table in any order.
+
+Ans : select tweet_id from tweets where length(content)>15;
 
