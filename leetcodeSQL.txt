@@ -5,7 +5,8 @@ Ans : Select product_id from products where low_fats ="Y" AND recyclable="Y";
 
 Joins Practice : 
  
-2.Write a solution to find the IDs of the invalid tweets. The tweet is invalid if the number of characters used in the content of the tweet is strictly greater than 15.
+2.Write a solution to find the IDs of the invalid tweets. 
+The tweet is invalid if the number of characters used in the content of the tweet is strictly greater than 15.
 
 Return the result table in any order.
 
@@ -22,3 +23,5 @@ Ans :select product_name,year,price from sales inner join product on sales.produ
 If the address of a personId is not present in the Address table, report null instead.
 
 Ans : select firstName ,lastName, city ,state from Person left join Address on person.personId = Address.personId;
+
+5. 
