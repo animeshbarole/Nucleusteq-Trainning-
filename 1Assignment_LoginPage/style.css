@@ -69,7 +69,7 @@ form .user_input{
 .user_input input:valid ~ label {
     top: -10px;
     color: #2691d9;
-    /* Add other styling properties as needed */
+   
 }
 
 
