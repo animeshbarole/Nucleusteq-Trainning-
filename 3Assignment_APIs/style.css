@@ -1,0 +1,42 @@
+
+body{
+    
+    height: 100vh;
+    background-color :#F6F5F2;
+    font-family: montserrat;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+   
+   
+}
+
+.card{
+   margin: 50px;  
+    width: 25%;
+    height: 40vh;
+    background-color: #FFEBB2;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    border: 1px solid;
+  
+    box-shadow: 5px 10px #888888;
+    transition: box-shadow 0.3s ease;
+    
+}
+
+.card:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); 
+}
+
+.card h2{
+    text-align: center;
+    border: 1px solid;
+}
+
+.card p{
+    box-sizing: border-box;
+}
