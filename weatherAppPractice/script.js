@@ -1,3 +1,21 @@
+
+
+async function currentWeather(currentWeatherURL){
+    
+    try{
+    const weatherInfo = await fetch(currentWeatherURL);
+    const response = await weatherInfo.json();
+     
+     displayData(response);  
+    }
+    catch(error)
+    {
+       console.log(`There is an error showing the data : ${error}`)
+          
+    }
+
+}
+
 function getWeatherInfo()
 {
       
@@ -16,32 +34,19 @@ function getWeatherInfo()
 
 }
 
-async function currentWeather(currentWeatherURL){
-    
-    try{
-    const weatherInfo = await fetch(currentWeatherURL);
-    const response = await weatherInfo.json();
-     
-     displayData(response);  
-    }
-    catch(error)
-    {
-       console.log(`There is an error showing the data : ${error}`)
-          
-    }
 
-}
 
 
 function displayData(weatherData){
        
-    const tempDivInfo = document.getElementsByClassName("temp-div");
-    const weatherInfo =  document.getElementsByClassName("weather-info")
+    const tempDivInfo = document.getElementById("temp-div");
+    const weatherInfo =  document.getElementById("weather-info")
     const  weatherIcon =  document.getElementById("weather-icon");
 
     
     tempDivInfo.innerHTML ="";
     weatherInfo.innerHTML ="";
+
 
     
     if(weatherData.cod=='404')
@@ -55,17 +60,17 @@ function displayData(weatherData){
         const iconCode = weatherData.weather[0].icon;
         const iconURL =`https://openweathermap.org/img/wn/${iconCode}@4x.png`;
     
+        const temperatureHTML = `
+        <p>${temprature}°C</p>
+    `;
 
-        const tempratureHTML = ` <p>${temprature}°C</p>`;
+    const weatherHtml = `
+        <p>${cityName}</p>
+        <p>${discription}</p>
+    `;
 
-        const weatherHTML =`
-             <p>${cityName}<p>
-             <p>${discription}<p>
-        `;
-
-
-        tempDivInfo.innerHTML = tempratureHTML;
-        weatherInfo.innerHTML = weatherHTML;
+        tempDivInfo.innerHTML = temperatureHTML;
+        weatherInfo.innerHTML = weatherHtml;
         weatherIcon.src = iconURL;
         weatherIcon.alt =discription;
 
