@@ -1,0 +1,84 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+* {
+   
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color:#F1EEDC;
+  
+}
+
+.container {
+  width: 100%;
+  width: 400px;
+  padding: 30px;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  border-radius: 12px;
+  background-color:#10439F;
+}
+
+h2 {
+   text-align: center; 
+   font-size: 40px;
+   color : white;
+   margin: 0px auto 20px 0px;
+  
+}
+
+
+.selection {
+   margin-bottom: 15px;
+}
+
+.selection label{
+  display: block;
+  margin-bottom: 5px;
+  color: white;
+  
+}
+
+#choose-difficutly {
+  
+   width: 100%;
+   padding: 8px;
+   border-radius: 10px;
+}
+
+
+.selecting-button{
+  margin-top: 30px;
+  text-align: center;
+}
+
+#starting-btn {
+   
+  width: 35%;
+  padding: 8px;
+  border:none;
+  color:#10439F;
+  font-weight: 700;
+  cursor: pointer;
+  transition:background-color 0.5s ease;
+  font-size :16px;
+  border-radius: 10px;
+  
+}
+
+#starting-btn:hover{
+  background-color: #96dcff;
+  color: white;
+}
+
+
