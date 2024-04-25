@@ -39,12 +39,13 @@ h2 {
 
 
 .selection {
-   margin-bottom: 15px;
+   margin-bottom: 25px;
 }
 
 .selection label{
   display: block;
-  margin-bottom: 5px;
+  font-size: 18px;
+  margin-bottom: 10px;
   color: white;
   
 }
@@ -52,8 +53,15 @@ h2 {
 #choose-difficutly {
   
    width: 100%;
-   padding: 8px;
-   border-radius: 10px;
+   padding: 12px;
+   outline: none;
+   border-radius: 12px;
+}
+#choose-categories{
+  width: 100%;
+  padding: 12px;
+  outline: none;
+  border-radius: 12px;
 }
 
 
@@ -64,8 +72,8 @@ h2 {
 
 #starting-btn {
    
-  width: 35%;
-  padding: 8px;
+  width: 50%;
+  padding: 12px;
   border:none;
   color:#10439F;
   font-weight: 700;
