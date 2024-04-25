@@ -1,0 +1,46 @@
+<mxfile host="app.diagrams.net" modified="2024-04-24T06:00:42.244Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" etag="TP_W9caXkgyv-iz2dAdt" version="24.2.8" type="device">
+  <diagram name="Page-1" id="SsSfe7a78HfMxdvK7VN3">
+    <mxGraphModel dx="794" dy="459" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="mFozWCknMY0WRz-Mo6nt-1" value="" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="220" y="150" width="320" height="450" as="geometry" />
+        </mxCell>
+        <mxCell id="mFozWCknMY0WRz-Mo6nt-3" value="Option 1" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="260" y="340" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="mFozWCknMY0WRz-Mo6nt-5" value="Option 2" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="260" y="390" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="mFozWCknMY0WRz-Mo6nt-6" value="Option 3" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="260" y="440" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="mFozWCknMY0WRz-Mo6nt-7" value="Option 4" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="260" y="490" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="mFozWCknMY0WRz-Mo6nt-8" value="Next" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="430" y="550" width="80" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="mFozWCknMY0WRz-Mo6nt-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.639;entryY=0.989;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="mFozWCknMY0WRz-Mo6nt-8" target="mFozWCknMY0WRz-Mo6nt-8" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mFozWCknMY0WRz-Mo6nt-11" value="Question 1 ) Example Question" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;" parent="1" vertex="1">
+          <mxGeometry x="240" y="260" width="270" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="B5stpJ_jytWu4PqcOwOs-1" value="1 of 5 Questions" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="550" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="B5stpJ_jytWu4PqcOwOs-4" value="score 1/5" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="450" y="220" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="B5stpJ_jytWu4PqcOwOs-6" value="Timer&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="180" width="280" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="B5stpJ_jytWu4PqcOwOs-7" value="Quiz Page&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=31;" vertex="1" parent="1">
+          <mxGeometry x="230" y="70" width="280" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
