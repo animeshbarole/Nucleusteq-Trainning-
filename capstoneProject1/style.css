@@ -107,7 +107,7 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .timer .progress-bar {
@@ -116,7 +116,7 @@ h2 {
    width: 100%;
    background-color: white;
    overflow: hidden;
-   margin-bottom: 10px;
+   
    border-radius: 30px;
    border: none;
    position: relative;
@@ -146,7 +146,66 @@ h2 {
 }
 
 
+.score-div {
+  display: flex;
+  justify-content: flex-end;
 
+
+}
+
+.score-div .score {
+    
+  padding: 10px;
+  border: 5px solid rgb(0, 19, 52);
+}
+
+.question {
+   
+  margin-top: 10px;
+  padding: 10px;
+
+
+}
+
+.question p {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: white;
+  font-style: normal;
+  margin-bottom: 10px;
+
+}
+
+.answers .btn {
+    
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 10px auto 20px auto;
+  
+}
+
+
+.submit-total{
+  display: flex; /* Make the child elements sit side-by-side */
+  align-items: center; /* Vertically align content in the center */
+  justify-content: space-between
+}
+.total-questions {
+    
+  font-weight: 700;
+  font-size: 20px;
+  
+  
+}
+
+.submit-total .btn-next{
+
+  width: 30%;
+  padding: 8px;
+  
+}
 
 
 
