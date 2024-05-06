@@ -27,6 +27,7 @@ const progress =(value)=>{
 
 
 
+
 function showScore()
 {
     quizPage.classList.add("hide");
@@ -37,11 +38,96 @@ function showScore()
 
     restartBtn.addEventListener("click",()=>{
                
+           currentScore =0;
+           score.innerHTML =`
+           <span id="score-txt">SCORE: </span>
+           <span id="score-num">${currentScore}</span>
+           `
+           currentIndex =0;
            resultPage.classList.add("hide");
            selectingPage.classList.remove("hide");
     });
 
+    
+    
+
 }
+
+
+
+function showCorrectAnswer()
+{
+    const buttons  =  answersDiv.querySelectorAll("button");
+    console.log(questions[currentIndex].correct_answer)
+    buttons.forEach((button)=>{
+         if(button.innerHTML === questions[currentIndex].correct_answer)
+            {
+                 button.style.background = "green";
+            }
+    })
+    const nxtButton =   document.getElementById("btn-next");
+    nxtButton.classList.remove("hide");
+    nxtButton.addEventListener("click",nextQuestionHandler);
+}
+
+
+
+
+
+
+const startTimer =((time)=>{
+     
+    let answerShown = false; 
+    timer  =  setInterval(()=>{
+        time--;
+        if(time>=0 )
+        {
+            progress(time);
+           
+        }
+        else if (!answerShown){
+           
+            showCorrectAnswer();
+            answerShown = true;
+        }
+        
+       
+    },1000);
+
+
+});
+
+function nextQuestionHandler()
+{
+    clearInterval(timer);  
+    Time =10;
+    progress(Time);
+    currentIndex++;
+     if(currentIndex < questions.length)
+     {
+       
+        answerSelected = false;
+        showQuiz();
+   
+     }
+     else { 
+        showScore();
+     
+   
+     }
+     const nxtButton = document.getElementById("btn-next");
+     nxtButton.removeEventListener("click", nextQuestionHandler);
+     nxtButton.classList.add("hide");
+}
+
+
+
+function updateScore()
+{
+    let scoreElement = document.getElementById("score-num");
+    scoreElement.innerText = currentScore;
+}
+
 
 
 function showQuiz()
@@ -107,7 +193,7 @@ function showQuiz()
                 button.disabled = true;
             })
             
-
+            
             clearInterval(timer);
 
           
@@ -122,48 +208,7 @@ function showQuiz()
     `;
     
     startTimer(Time);
-    
 
-}
-
-function nextQuestionHandler()
-{
-    currentIndex++;
-     if(currentIndex < questions.length)
-     {
-       
-        answerSelected = false;
-        showQuiz();
-     }
-     else { 
-        showScore();
-     }
-     const nxtButton = document.getElementById("btn-next");
-     nxtButton.removeEventListener("click", nextQuestionHandler);
-     nxtButton.classList.add("hide");
-}
-
-const startTimer =((time)=>{
-     
-    timer  =  setInterval(()=>{
-
-        if(timer >=0 )
-        {
-            progress(time);
-            time--;
-        }
-       
-    },1000);
-
-
-});
-
-
-
-function updateScore()
-{
-    let scoreElement = document.getElementById("score-num");
-    scoreElement.innerText = currentScore;
 }
 
 
@@ -189,6 +234,10 @@ async function startQuiz()
       selectingPage.classList.add("hide");
       quizPage.classList.remove("hide");
       showQuiz();
+
+      
+      
+    
 }
 
 const startQuizBtn = document.getElementById("starting-btn");
