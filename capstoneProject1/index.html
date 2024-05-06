@@ -46,23 +46,23 @@
             
         </div>
 
-        <div class="quiz-page  hide">
+        <div class="quiz-page hide ">
             <div class="timer">
                 <div class="progress-bar">
                     <div class="progress-colour">
-                        <span class ="progress-txt">50%</span>
+                        <span class ="progress-txt"></span>
                     </div>
                 </div>
             </div>
 
             <div class="score-div">
                 <div class="score">
-                    <span id="score-txt">SCORE:</span><span id="score-num">1/5</span>
+                    <span id="score-txt">SCORE: </span><span id="score-num">0</span>
                 </div>
             </div>
            
             <div class="question ">
-            <!-- <p>This is Your Question write like you can do it in many ways how can you approach problem ?</p> -->
+           <p>This is Your Question write like you can do it in many ways how can you approach problem ?</p>
             </div>
 
             <div class="answers">
@@ -76,10 +76,11 @@
 
             <div class="submit-total">
                 <div class="total-questions">
-                   1/5
+                     <span class="q">1 </span> / 
+                     <span class="total-q">5</span>
                 </div>
                
-                <button class="btn-next">Next</button>
+               <button id="btn-next" class="hide">Next</button>
             
                   
             </div>
@@ -92,13 +93,15 @@
             <h2> Quiz App</h2>
 
            <div class="total-Score">
-               <p>Your Total Score is 1/5 </p>
+               <p class = "final-score">Your Total Score is 1</p><br>
+               <p class="final-feedback">Your can do better,lease Practice more </p>
+               
               
            </div>
             
            <div class="restart">
              
-              <button class="restart-btn">RESTART</button>
+              <button id="restart-btn">RESTART</button>
 
            </div>
 
