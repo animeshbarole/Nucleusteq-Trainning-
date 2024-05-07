@@ -8,11 +8,13 @@ const progressColor = document.querySelector(".progress-colour");
 const progressTxt = document.querySelector(".progress-txt");
 const submitTotal = document.querySelector(".submit-total");
 const score  =  document.querySelector(".score");
+const finalScoreElement = document.querySelector('.final-score');
+const finalFeedbackElement = document.querySelector('.final-feedback');
 
 let questions =[];
 let currentIndex =0;
 let currentScore=0;
-let totalScore =questions.length;
+let totalScore = 0;
 let Time =10;
 let timer;
     
@@ -21,6 +23,15 @@ const progress =(value)=>{
    
      const percentage = (value/Time)*100;
      progressColor.style.width = `${percentage}%`;
+      
+     if(value<= Time/2 )
+        {
+            progressColor.style.backgroundColor ="#FD5E53";
+        }
+        else{
+            progressColor.style.backgroundColor = "#8CBA51";
+        }
+     
      progressTxt.innerHTML = `${value}`;
  
 };
@@ -32,7 +43,24 @@ function showScore()
 {
     quizPage.classList.add("hide");
     resultPage.classList.remove("hide");
+     
+    
+    finalScoreElement.textContent = `Total Score : ${currentScore} / ${totalScore}`;
 
+    let feedback ='';
+
+    if(currentScore===totalScore)
+        {
+            feedback ="Excellent! You've got all the questions right!";
+        }
+        else if(currentScore>=totalScore)
+            {
+                feedback = "Good job! Keep practicing to improve!";
+            }
+        else {
+            feedback = "You can do better. Please practice more!";
+        }
+    finalFeedbackElement.textContent = feedback;
     
     const restartBtn =  document.getElementById("restart-btn");
 
@@ -58,11 +86,11 @@ function showScore()
 function showCorrectAnswer()
 {
     const buttons  =  answersDiv.querySelectorAll("button");
-    console.log(questions[currentIndex].correct_answer)
+  
     buttons.forEach((button)=>{
          if(button.innerHTML === questions[currentIndex].correct_answer)
             {
-                 button.style.background = "green";
+                 button.style.background = "#A2EF44";
             }
     })
     const nxtButton =   document.getElementById("btn-next");
@@ -89,6 +117,11 @@ const startTimer =((time)=>{
            
             showCorrectAnswer();
             answerShown = true;
+            const allbtn =  document.querySelectorAll(".btn");
+
+            allbtn.forEach((button)=>{
+                button.disabled = true;
+            })
         }
         
        
@@ -101,6 +134,7 @@ function nextQuestionHandler()
 {
     clearInterval(timer);  
     Time =10;
+    progressColor.style.width = "100%";
     progress(Time);
     currentIndex++;
      if(currentIndex < questions.length)
@@ -157,7 +191,7 @@ function showQuiz()
         button.classList.add("btn");
         answersDiv.appendChild(button);
         button.addEventListener("click",()=>{
-   
+            clearInterval(timer);
              if(!answerSelected){
             const isCorrect = answer===currentQuestion.correct_answer;
 
@@ -169,11 +203,11 @@ function showQuiz()
                     <span id="score-txt">SCORE: </span>
                     <span id="score-num">${currentScore}</span>
                     `
-                    button.style.background = "green";
+                    button.style.background = "#A2EF44";
                 }
                 else 
                 {
-                    button.style.background = "red";
+                    button.style.background = "#FF6B6B";
                 }
             
             }
@@ -192,12 +226,7 @@ function showQuiz()
             allbtn.forEach((button)=>{
                 button.disabled = true;
             })
-            
-            
-            clearInterval(timer);
-
-          
-        })
+         })
        
        
     });    
@@ -206,6 +235,8 @@ function showQuiz()
     <span class="q">${currentIndex+1} </span> / 
     <span class="total-q">${questions.length}</span>
     `;
+
+    progressColor.style.width = "100%";
     
     startTimer(Time);
 
@@ -226,7 +257,7 @@ async function startQuiz()
       const response = await QUIZ_API.json();
 
       questions = response.results;
-      totalScore =questions.length *20;
+      totalScore =questions.length;
       console.log(questions);
       console.log(totalScore);
      

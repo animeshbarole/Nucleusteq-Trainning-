@@ -129,9 +129,9 @@ h2 {
   width: 100%;
 
   overflow: hidden;
-  background-color: rgb(255, 112, 112);
+  background-color: #8CBA51;
   
-transition: 1s linear;
+  transition: 1s linear;
 
 
 }
@@ -209,11 +209,11 @@ transition: 1s linear;
 }
 
 .btn .correct {
-   border-color : #0cef2a;
+   border-color : #65fa79;
 }
 
 .btn .wrong {
-  border-color :#fc3939;
+  border-color :#f29090;
 }
 
 
@@ -248,21 +248,47 @@ transition: 1s linear;
   cursor: pointer;
   font-weight: 600;
   background-color: white;
-  border :3px solid #60e4f5 ;
+  border:none;
+  color:#1679AB;
+  transition:background-color 0.5s ease;
+ 
+
   
 }
 
+#btn-next:hover{
+  background-color: #96dcff;
+  color: white;
+}
+
+
+
 .total-Score {
    
+  padding: 20px;
+  height: 30vh;
+  border-radius: 5px;
  
-  font-size: 25px;
-  
+  background-color: rgb(167, 251, 255);
   margin-bottom: 50px;
-  font-weight: 400;
+  
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.final-score {
+  font-size: 30px;
+  font-weight: 600;
+  
+}
+
+.final-feedback{
+  
+  font-size: 20px;
+  color: #031721;
+  font-weight: 400;
 }
 
 .restart {
