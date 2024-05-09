@@ -236,6 +236,7 @@ function showQuiz()
     <span class="total-q">${questions.length}</span>
     `;
 
+  
     progressColor.style.width = "100%";
     
     startTimer(Time);
@@ -247,13 +248,14 @@ async function startQuiz()
 {   
       const difficutly = document.getElementById("choose-difficutly").value;
       const category = document.getElementById("choose-categories").value;
-      if(difficutly===""||category==="")
+      const noOfQuestions = document.getElementById("choose-questions").value; 
+      if(difficutly===""||category==="" || noOfQuestions==="")
       {
-          alert("Please Choose Quiz Type");
+          alert("Please Select all the Fields");
           return;
       }
 
-      const QUIZ_API = await fetch(`https://opentdb.com/api.php?amount=5&category=${category}&difficulty=${difficutly}&type=multiple`);
+      const QUIZ_API = await fetch(`https://opentdb.com/api.php?amount=${noOfQuestions}&category=${category}&difficulty=${difficutly}&type=multiple`);
       const response = await QUIZ_API.json();
 
       questions = response.results;

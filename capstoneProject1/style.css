@@ -71,6 +71,14 @@ h2 {
   outline: none;
   border-radius: 12px;
 }
+#choose-questions{
+  width: 100%;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px;
+  outline: none;
+  border-radius: 12px;
+}
 
 
 .selecting-button{
