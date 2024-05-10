@@ -255,7 +255,12 @@ async function startQuiz()
           return;
       }
 
-      const QUIZ_API = await fetch(`https://opentdb.com/api.php?amount=${noOfQuestions}&category=${category}&difficulty=${difficutly}&type=multiple`);
+     
+      const API = `https://opentdb.com/api.php?amount=${noOfQuestions}&category=${category}&difficulty=${difficutly}&type=multiple`;
+      
+      const QUIZ_API = await fetch(API,{
+          method :'GET',
+      });
       const response = await QUIZ_API.json();
 
       questions = response.results;
