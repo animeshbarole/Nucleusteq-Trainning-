@@ -11,7 +11,8 @@ public class MySQLConnectionExample {
         String url ="jdbc:mysql://localhost:3306/animeshdb";
         String username = "root";
         String password = "Animesh@123";
-        String query = "Select * from sales";
+        String query = "Select * from sales where region =?";
+        String insertQuery = "INSERT INTO sales (region,year,sales_amount) VALUES('West',2024,1000.0)";
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -25,9 +26,15 @@ public class MySQLConnectionExample {
 
             Connection con = DriverManager.getConnection(url,username,password);
             System.out.println("Conncetion Established Successfully");
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery(query);
+            //Statement stmt = con.createStatement();
+            PreparedStatement prepared = con.prepareStatement(query);
+            prepared.setString(1,"North");
+            ResultSet rs = prepared.executeQuery();
 
+
+
+
+           // ResultSet rs = stmt.executeQuery(query);
             while(rs.next()){
                 String region = rs.getString("region");
                 int year = rs.getInt("year");
@@ -39,9 +46,8 @@ public class MySQLConnectionExample {
                 System.out.println("year: "+year);
                 System.out.println("sales_amount: "+sales_amount);
             }
-
             rs.close();
-            stmt.close();
+            prepared.close();
             con.close();
 
             System.out.println("Connection Closed Successfully");
