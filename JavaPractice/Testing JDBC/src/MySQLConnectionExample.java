@@ -12,6 +12,7 @@ public class MySQLConnectionExample {
         String username = "root";
         String password = "Animesh@123";
         String query = "Select * from sales";
+        String insertQuery = "INSERT INTO sales (region,year,sales_amount) VALUES('West',2024,1000.0)";
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -26,9 +27,19 @@ public class MySQLConnectionExample {
             Connection con = DriverManager.getConnection(url,username,password);
             System.out.println("Conncetion Established Successfully");
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery(query);
+            int rowsAffected = stmt.executeUpdate(insertQuery);
 
-            while(rs.next()){
+            if(rowsAffected>0)
+            {
+                System.out.println("Insert Successfull " +rowsAffected + "rows(s) afftected.");
+            }
+            else {
+                System.out.println("Insertion Falied");
+            }
+
+           // ResultSet rs = stmt.executeQuery(query);
+
+          /**  while(rs.next()){
                 String region = rs.getString("region");
                 int year = rs.getInt("year");
                 BigDecimal sales_amount = rs.getBigDecimal("sales_amount");
@@ -39,8 +50,8 @@ public class MySQLConnectionExample {
                 System.out.println("year: "+year);
                 System.out.println("sales_amount: "+sales_amount);
             }
-
-            rs.close();
+          **/
+           // rs.close();
             stmt.close();
             con.close();
 
