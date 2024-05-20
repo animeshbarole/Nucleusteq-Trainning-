@@ -8,13 +8,13 @@ public class Category {
 
        @Id
        @GeneratedValue(strategy = GenerationType.AUTO)
-       private int category_id;
+       private int id;
 
        @Column(nullable = false,unique = true)
        private  String categoryName;
 
-    public Category(int category_id, String categoryName) {
-        this.category_id = category_id;
+    public Category(int id, String categoryName) {
+        this.id = id;
         this.categoryName = categoryName;
     }
 
@@ -22,12 +22,12 @@ public class Category {
         super();
     }
 
-    public int getCategory_id() {
-        return category_id;
+    public int getId() {
+        return id;
     }
 
-    public void setCategory_id(int category_id) {
-        this.category_id = category_id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getCategoryName() {
@@ -43,7 +43,7 @@ public class Category {
     @Override
     public String toString() {
         return "Category{" +
-                "category_id=" + category_id +
+                "id=" + id +
                 ", categoryName='" + categoryName + '\'' +
                 '}';
     }
