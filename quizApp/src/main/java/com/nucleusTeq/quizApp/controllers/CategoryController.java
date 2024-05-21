@@ -2,13 +2,14 @@ package com.nucleusTeq.quizApp.controllers;
 
 
 import com.nucleusTeq.quizApp.entities.Category;
-import com.nucleusTeq.quizApp.repositories.CategoryRepository;
+
+import com.nucleusTeq.quizApp.services.CategoryServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+
+
 import java.util.List;
 
 
@@ -20,27 +21,21 @@ import java.util.List;
 public class CategoryController {
 
       @Autowired
-      private CategoryRepository categoryRepository;
+      private CategoryServiceImp categoryService;
 
       @PostMapping
       public ResponseEntity<Category> createCategory(@RequestBody Category category){
 
-          Category savedCategory = categoryRepository.save(category);
+          Category savedCategory = categoryService.createCategory(category);
           return  ResponseEntity.ok(savedCategory);
       }
 
      @GetMapping("/")
      public ResponseEntity<List<Category>> getCategory() {
 
-       Iterable<Category> categories = categoryRepository.findAll();
-       List<Category> listOFCategories = new ArrayList<>();
+          List<Category> categories = categoryService.getCategories();
 
-       for(Category item : categories)
-       {
-           listOFCategories.add(item);
-       }
-
-        return  ResponseEntity.ok(listOFCategories);
+          return  ResponseEntity.ok(categories);
 
      }
 
