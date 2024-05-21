@@ -13,13 +13,8 @@ public class QuizAppApplication {
 
 	  ApplicationContext context = SpringApplication.run(QuizAppApplication.class, args);
 
-		CategoryRepository categoryRepository =context.getBean(CategoryRepository.class);
 
-		Category category = new Category();
-		category.setCategoryName("G.K");
-		Category category1 = categoryRepository.save(category);
 
-		System.out.println(category1);
 
 	}
 
