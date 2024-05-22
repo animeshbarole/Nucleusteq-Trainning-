@@ -36,16 +36,18 @@ public class QuestionsController {
 
 
 
-    @GetMapping("/{difficultyLevel}/category/{categoryId}")
+    @GetMapping("/filter")
 
-    public ResponseEntity<List<Questions>> getQuestionsByDifficultyAndCategory(@PathVariable String difficultyLevel, @PathVariable long categoryId)
-    {
-        List<Questions> questions = questionService.getQuestionsByDifficultyAndCategory(difficultyLevel, categoryId);
+    public ResponseEntity<List<Questions>> getQuestionsByDifficultyAndCategory(
+        @RequestParam(name="difficultyLevel") String difficultyLevel,
+        @RequestParam(name="categoryId") long categoryId) {
 
-        return ResponseEntity.ok(questions);
+        {
+            List<Questions> questions = questionService.getQuestionsByDifficultyAndCategory(difficultyLevel, categoryId);
+
+            return ResponseEntity.ok(questions);
+        }
+
+
     }
-
-
-
-
 }
