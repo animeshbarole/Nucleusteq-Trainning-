@@ -36,6 +36,22 @@ public class Questions {
     private String difficultyLevel;
 
 
+    public Questions(Long id, String questionText, String option1, String option2, String option3, String option4, String correct_answer, Category category, String difficultyLevel) {
+        this.id = id;
+        this.questionText = questionText;
+        this.option1 = option1;
+        this.option2 = option2;
+        this.option3 = option3;
+        this.option4 = option4;
+        this.correct_answer = correct_answer;
+        this.category = category;
+        this.difficultyLevel = difficultyLevel;
+    }
+
+    public Questions() {
+
+    }
+
     public Long getId() {
         return id;
     }
