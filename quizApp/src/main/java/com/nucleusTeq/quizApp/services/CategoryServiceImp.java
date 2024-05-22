@@ -15,11 +15,13 @@ public class CategoryServiceImp implements CategoryService{
     @Autowired
     private CategoryRepository categoryRepository;
 
+    @Override
     public Category createCategory(Category category)
     {
         return  categoryRepository.save(category);
     }
 
+    @Override
     public List<Category> getCategories(){
 
         Iterable<Category> categories = categoryRepository.findAll();
