@@ -18,14 +18,15 @@ public class QuestionsController {
     private QuestionServiceImp questionService;
 
     @PostMapping
-    public ResponseEntity<Questions> createQuestion(@RequestBody Questions question) {
+    public ResponseEntity<List<Questions>> createQuestion(@RequestBody List<Questions> question) {
 
-        Questions savedQuestion = questionService.createQuestion(question);
+        List<Questions> savedQuestion = questionService.createQuestion(question);
 
         return ResponseEntity.ok(savedQuestion);
 
 
     }
+
 
     @GetMapping("/")
     public ResponseEntity<List<Questions>> getAllQuestions()
@@ -34,8 +35,7 @@ public class QuestionsController {
         return ResponseEntity.ok(questions);
     }
 
-
-
+    @CrossOrigin
     @GetMapping("/filter")
 
     public ResponseEntity<List<Questions>> getQuestionsByDifficultyAndCategory(
