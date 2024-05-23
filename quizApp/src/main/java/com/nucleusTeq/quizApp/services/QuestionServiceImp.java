@@ -17,9 +17,9 @@ public class QuestionServiceImp implements  QuestionService{
     private QuestionRepository questionRepository;
 
     @Override
-    public Questions createQuestion(Questions question)
+    public List<Questions> createQuestion(List<Questions> question)
     {
-        return questionRepository.save(question);
+        return questionRepository.saveAll(question);
     }
 
     @Override
