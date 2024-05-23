@@ -11,7 +11,7 @@ const score  =  document.querySelector(".score");
 const finalScoreElement = document.querySelector('.final-score');
 const finalFeedbackElement = document.querySelector('.final-feedback');
 
-let questions =[];
+let questions;
 let currentIndex =0;
 let currentScore=0;
 let totalScore = 0;
@@ -244,38 +244,44 @@ function showQuiz()
 }
 
 
-async function startQuiz()
-{   
-      const difficutly = document.getElementById("choose-difficutly").value;
-      const category = document.getElementById("choose-categories").value;
-      const noOfQuestions = document.getElementById("choose-questions").value; 
-      if(difficutly===""||category==="" || noOfQuestions==="")
-      {
-          alert("Please Select all the Fields");
-          return;
-      }
+async function startQuiz() {
+    const difficutly = document.getElementById("choose-difficutly").value;
+    const category = document.getElementById("choose-categories").value;
 
-     
-      const API = `https://opentdb.com/api.php?amount=${noOfQuestions}&category=${category}&difficulty=${difficutly}&type=multiple`;
-      
-      const QUIZ_API = await fetch(API,{
-          method :'GET',
-      });
-      const response = await QUIZ_API.json();
+    if (difficutly === "" || category === "") {
+        alert("Please Select all the Fields");
+        return;
+    }
 
-      questions = response.results;
-      totalScore =questions.length;
-      console.log(questions);
-      console.log(totalScore);
-     
+    // Updated API URL to point to your local API
+    const API = `http://localhost:8080/api/v1/questions/filter?difficultyLevel=${difficutly}&categoryId=${category}`;
 
-      selectingPage.classList.add("hide");
-      quizPage.classList.remove("hide");
-      showQuiz();
+    try {
+        const QUIZ_API = await fetch(API, {
+            method: 'GET',
+        });
 
-      
-      
-    
+        if (!QUIZ_API.ok) {
+            throw new Error(`HTTP error! status: ${QUIZ_API.status}`);
+        }
+
+        questions = await QUIZ_API.json();
+       
+
+        
+        totalScore = questions.length;
+
+        console.log(questions);
+        console.log(totalScore);
+
+        selectingPage.classList.add("hide");
+        quizPage.classList.remove("hide");
+        showQuiz();
+
+    } catch (error) {
+        console.error("Error fetching quiz data:", error);
+        alert("Failed to load quiz data. Please try again later.");
+    }
 }
 
 const startQuizBtn = document.getElementById("starting-btn");
