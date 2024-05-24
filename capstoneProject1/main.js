@@ -156,11 +156,6 @@ function nextQuestionHandler()
 
 
 
-function updateScore()
-{
-    let scoreElement = document.getElementById("score-num");
-    scoreElement.innerText = currentScore;
-}
 
 
 
@@ -170,10 +165,10 @@ function showQuiz()
     const currentQuestion= questions[currentIndex];
     questionDiv.innerHTML = "";   
     const Question = document.createElement("p");
-    Question.innerHTML = currentQuestion.question;
+    Question.innerHTML = currentQuestion.questionText;
     questionDiv.appendChild(Question);
 
-    let allAnswers = [...currentQuestion.incorrect_answers,currentQuestion.correct_answer];
+    let allAnswers = [currentQuestion.option1,currentQuestion.option2,currentQuestion.option3,currentQuestion.option4];
     
     allAnswers.sort(()=>{
         Math.random()-0.5;
