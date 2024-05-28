@@ -23,19 +23,22 @@ public class CategoryController {
       @Autowired
       private CategoryServiceImp categoryService;
 
-      @PostMapping
+      @PostMapping("/save")
       public ResponseEntity<Category> createCategory(@RequestBody Category category){
 
-          Category savedCategory = categoryService.createCategory(category);
-          return  ResponseEntity.ok(savedCategory);
+
+              Category savedCategory = categoryService.createCategory(category);
+              return  ResponseEntity.ok(savedCategory);
+
       }
 
-     @GetMapping("/")
-     public ResponseEntity<List<Category>> getCategory() {
+     @GetMapping("/getAll")
+     public ResponseEntity<List<Category>> getCategories() {
 
-          List<Category> categories = categoryService.getCategories();
 
-          return  ResponseEntity.ok(categories);
+             List<Category> categories = categoryService.getCategories();
+             return  ResponseEntity.ok(categories);
+
 
      }
 

@@ -17,7 +17,7 @@ public class QuestionsController {
     @Autowired
     private QuestionServiceImp questionService;
 
-    @PostMapping
+    @PostMapping("/saveAll")
     public ResponseEntity<List<Questions>> createQuestion(@RequestBody List<Questions> question) {
 
         List<Questions> savedQuestion = questionService.createQuestion(question);
@@ -28,7 +28,7 @@ public class QuestionsController {
     }
 
 
-    @GetMapping("/")
+    @GetMapping("/getAll")
     public ResponseEntity<List<Questions>> getAllQuestions()
     {
         List<Questions> questions  =  questionService.getAllQuestions();
