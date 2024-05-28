@@ -1,7 +1,5 @@
 package com.nucleusTeq.quizApp;
 
-import com.nucleusTeq.quizApp.entities.Category;
-import com.nucleusTeq.quizApp.repositories.CategoryRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;

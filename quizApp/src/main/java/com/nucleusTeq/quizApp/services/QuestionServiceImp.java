@@ -1,6 +1,5 @@
 package com.nucleusTeq.quizApp.services;
 
-import com.nucleusTeq.quizApp.entities.Category;
 import com.nucleusTeq.quizApp.entities.Questions;
 import com.nucleusTeq.quizApp.repositories.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
