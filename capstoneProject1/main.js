@@ -156,6 +156,22 @@ function nextQuestionHandler()
 
 
 
+function shuffleArray(answers)
+{ 
+    let curr = answers.length;
+
+    while(curr!=0)
+        {
+            let randomIndx = Math.floor(Math.random() * curr);
+            curr--;
+
+            [answers[curr],answers[randomIndx]] = [answers[randomIndx],answers[curr]];
+
+        }
+   
+       return answers; 
+
+}
 
 
 
@@ -170,16 +186,17 @@ function showQuiz()
 
     let allAnswers = [currentQuestion.option1,currentQuestion.option2,currentQuestion.option3,currentQuestion.option4];
     
-    allAnswers.sort(()=>{
-        Math.random()-0.5;
-    })
+   
+    let answers = shuffleArray(allAnswers);
 
+  
+    
     answersDiv.innerHTML ="";
     
     let answerSelected = false
  
     
-    allAnswers.forEach((answer)=>{
+    answers.forEach((answer)=>{
       
         const button =document.createElement("button");
         button.innerText = answer;
@@ -266,8 +283,7 @@ async function startQuiz() {
         
         totalScore = questions.length;
 
-        console.log(questions);
-        console.log(totalScore);
+      
 
         selectingPage.classList.add("hide");
         quizPage.classList.remove("hide");
