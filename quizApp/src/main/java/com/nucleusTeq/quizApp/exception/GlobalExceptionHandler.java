@@ -15,10 +15,44 @@ public class GlobalExceptionHandler {
       public ResponseEntity<ErrorResponse> handleDuplicateEntry(DataIntegrityViolationException ex)
 
       {
-            String message = "Duplicate entry 'General Knowledge' for key";
-            ErrorResponse errorResponse = new ErrorResponse(message);
+            String message = ex.getMessage();
+            ErrorResponse errorResponse = new ErrorResponse(message,false);
+            return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
 
-            return new ResponseEntity<>(errorResponse, HttpStatus.CONFLICT);
+      }
+      @ExceptionHandler(MissingParameterException.class)
+      public  ResponseEntity<ErrorResponse> handleMissingParameter(MissingParameterException ex)
+      {
+            String message = ex.getMessage();
+            ErrorResponse errorResponse = new ErrorResponse(message, false);
+            return new ResponseEntity<>(errorResponse, HttpStatus.BAD_REQUEST);
+      }
+
+      @ExceptionHandler(EmptyListException.class)
+      public ResponseEntity<ErrorResponse> handleEmptyList(EmptyListException ex)
+      {
+            String message = ex.getMessage();
+            ErrorResponse errorResponse = new ErrorResponse(message,false);
+            return  new ResponseEntity<>(errorResponse,HttpStatus.NOT_FOUND);
+
+      }
+
+      @ExceptionHandler(ResourceNotFoundException.class)
+      public  ResponseEntity<ErrorResponse> handleResourceNotFound(ResourceNotFoundException ex)
+      {
+            String message = ex.getMessage();
+            ErrorResponse errorResponse = new ErrorResponse(message,false);
+            return  new ResponseEntity<>(errorResponse,HttpStatus.BAD_REQUEST);
+
+
+      }
+
+      @ExceptionHandler(InvalidParameterException.class)
+      public  ResponseEntity<ErrorResponse> handleInvalidParameter(InvalidParameterException ex)
+      {
+            String message = ex.getMessage();
+            ErrorResponse errorResponse = new ErrorResponse(message,false);
+            return  new ResponseEntity<>(errorResponse,HttpStatus.NOT_FOUND);
 
       }
 }

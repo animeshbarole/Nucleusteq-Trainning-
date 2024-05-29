@@ -6,9 +6,11 @@ import java.util.List;
 
 public interface QuestionService {
 
-    List<Questions> createQuestion(List<Questions> question);
 
-    List<Questions> getAllQuestions();
+    Questions createQuestion(Questions question);
+    List<Questions> createQuestions(List<Questions> questions);
+
+
 
     List<Questions> getQuestionsByDifficultyAndCategory(String difficultyLevel, long categoryId);
 
