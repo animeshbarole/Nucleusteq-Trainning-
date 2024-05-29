@@ -15,10 +15,16 @@ public class QuestionServiceImp implements  QuestionService{
     @Autowired
     private QuestionRepository questionRepository;
 
+
     @Override
-    public List<Questions> createQuestion(List<Questions> question)
+    public  Questions createQuestion(Questions question)
     {
-        return questionRepository.saveAll(question);
+        return questionRepository.save(question);
+    }
+    @Override
+    public List<Questions> createQuestions(List<Questions> questions)
+    {
+        return questionRepository.saveAll(questions);
     }
 
     @Override

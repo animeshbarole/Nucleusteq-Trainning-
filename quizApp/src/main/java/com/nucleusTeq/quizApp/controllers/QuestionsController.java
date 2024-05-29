@@ -18,13 +18,21 @@ public class QuestionsController {
     private QuestionServiceImp questionService;
 
     @PostMapping("/saveAll")
-    public ResponseEntity<List<Questions>> createQuestion(@RequestBody List<Questions> question) {
+    public ResponseEntity<List<Questions>> createQuestions(@RequestBody List<Questions> questions) {
 
-        List<Questions> savedQuestion = questionService.createQuestion(question);
+        List<Questions> savedQuestions = questionService.createQuestions(questions);
 
-        return ResponseEntity.ok(savedQuestion);
+        return ResponseEntity.ok(savedQuestions);
 
 
+    }
+
+
+    @PostMapping("/save")
+    public ResponseEntity<Questions>  createQuestion(@RequestBody Questions question)
+    {
+        Questions saveQuestion=  questionService.createQuestion(question);
+        return  ResponseEntity.ok(saveQuestion);
     }
 
 

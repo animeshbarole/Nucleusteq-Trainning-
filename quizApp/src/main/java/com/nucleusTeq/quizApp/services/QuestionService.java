@@ -6,7 +6,9 @@ import java.util.List;
 
 public interface QuestionService {
 
-    List<Questions> createQuestion(List<Questions> question);
+
+    Questions createQuestion(Questions question);
+    List<Questions> createQuestions(List<Questions> questions);
 
     List<Questions> getAllQuestions();
 
