@@ -10,7 +10,7 @@ public interface QuestionService {
     Questions createQuestion(Questions question);
     List<Questions> createQuestions(List<Questions> questions);
 
-    List<Questions> getAllQuestions();
+
 
     List<Questions> getQuestionsByDifficultyAndCategory(String difficultyLevel, long categoryId);
 

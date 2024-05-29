@@ -36,12 +36,7 @@ public class QuestionsController {
     }
 
 
-    @GetMapping("/getAll")
-    public ResponseEntity<List<Questions>> getAllQuestions()
-    {
-        List<Questions> questions  =  questionService.getAllQuestions();
-        return ResponseEntity.ok(questions);
-    }
+
 
     @CrossOrigin
     @GetMapping("/filter")
