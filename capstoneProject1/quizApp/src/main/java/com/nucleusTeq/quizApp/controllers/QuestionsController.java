@@ -36,8 +36,6 @@ public class QuestionsController {
     }
 
 
-
-
     @CrossOrigin
     @GetMapping("/filter")
 
