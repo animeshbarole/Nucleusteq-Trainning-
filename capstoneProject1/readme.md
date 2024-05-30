@@ -6,9 +6,9 @@ and get the questions on the basis of Difficulty level and CategoryID.
 
 ## Features ##
 
-*RESTful API : Built End Points for Creating and Posting questions 
-*Database Integration : Seamless integration with database .
-*Exceptional Handling : Robust error handling .
+-RESTful API : Built End Points for Creating and Posting questions 
+-Database Integration : Seamless integration with database .
+-Exceptional Handling : Robust error handling .
 
 ## Prerequisites ##
 
