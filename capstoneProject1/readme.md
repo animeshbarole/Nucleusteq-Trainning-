@@ -29,6 +29,40 @@ mvn clean install
 
 ```
 
+## Configuration ##
+Create application.properties in the resources package and 
+Update the application.properties file located in src/main/resources with your database credentials:
+```sh
+spring.datasource.url=jdbc:mysql://localhost:3306/quizApp
+spring.datasource.username=yourusername
+spring.datasource.password=yourpassword
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+
+```
+## Running the Application ##
+To run the application, use the following command:
+```sh
+mvn spring-boot:run
+
+```
+The application will start on http://localhost:8080.
+
+## API Endpoints ##
+Here are some of the main API endpoints available in the application:
+
+* Categories APIs
+** Post : /api/v1/categories/save
+** Get  : /api/v1/categories/getAll
+
+* Questions Apis
+** Post : /api/v1/questions/save
+** Get : /api/v1/questions/filter?difficultyLevel=""&categoryId=""
+
+    
+
+ 
+
 
 
 
