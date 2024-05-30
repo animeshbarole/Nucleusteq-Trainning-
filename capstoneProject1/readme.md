@@ -66,7 +66,7 @@ The database schema for QuizApp includes the following tables:
 * Questions Table : Store Questions along with Category_ID
 
  
-
+Thank you for using QuizApp!
 
 
 
