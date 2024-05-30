@@ -52,12 +52,12 @@ The application will start on http://localhost:8080.
 Here are some of the main API endpoints available in the application:
 
 * Categories APIs
-** Post : /api/v1/categories/save
-** Get  : /api/v1/categories/getAll
+   * Post : /api/v1/categories/save
+   * Get  : /api/v1/categories/getAll
 
 * Questions Apis
-** Post : /api/v1/questions/save
-** Get : /api/v1/questions/filter?difficultyLevel=""&categoryId=""
+   * Post : /api/v1/questions/save
+   * Get : /api/v1/questions/filter?difficultyLevel=""&categoryId=""
 
     
 
