@@ -18,9 +18,17 @@ and get the questions on the basis of Difficulty level and CategoryID.
 
 ## Installation ##
 
-``` 1 . Clone the  Repository :
-git clone https://github.com/yourusername/quizapp.git
-cd quizapp
+1.**Clone the  Repository :**
+```sh
+git clone https://github.com/yourusername/NucleusTeq-Trainning 
+cd capstoneProject1/quizApp
+```
+2. **Build the project using Maven:**
+```sh
+mvn clean install
+
+```
+
 
 
 
