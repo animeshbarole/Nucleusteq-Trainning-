@@ -59,7 +59,11 @@ Here are some of the main API endpoints available in the application:
    * Post : /api/v1/questions/save
    * Get : /api/v1/questions/filter?difficultyLevel=""&categoryId=""
 
-    
+
+## Database Schema ##
+The database schema for QuizApp includes the following tables:
+* Categories Table : Store Categories with ID
+* Questions Table : Store Questions along with Category_ID
 
  
 
