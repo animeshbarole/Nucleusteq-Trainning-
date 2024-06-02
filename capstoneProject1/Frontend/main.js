@@ -204,13 +204,13 @@ function showQuiz()
         answersDiv.appendChild(button);
         button.addEventListener("click",()=>{
             clearInterval(timer);
+
              if(!answerSelected){
-            const isCorrect = answer===currentQuestion.correct_answer;
+                const isCorrect = answer===currentQuestion.correct_answer;
 
                 if(isCorrect)
                 {
                     currentScore += 1;
-                    console.log(currentScore);
                     score.innerHTML =`
                     <span id="score-txt">SCORE: </span>
                     <span id="score-num">${currentScore}</span>
@@ -265,7 +265,6 @@ async function startQuiz() {
         return;
     }
 
-    // Updated API URL to point to your local API
     const API = `http://localhost:8080/api/v1/questions/filter?difficultyLevel=${difficutly}&categoryId=${category}`;
 
     try {
@@ -278,15 +277,11 @@ async function startQuiz() {
         }
 
         questions = await QUIZ_API.json();
-       
-
-        
         totalScore = questions.length;
-
-      
 
         selectingPage.classList.add("hide");
         quizPage.classList.remove("hide");
+
         showQuiz();
 
     } catch (error) {
@@ -294,6 +289,7 @@ async function startQuiz() {
         alert("Failed to load quiz data. Please try again later.");
     }
 }
+
 
 const startQuizBtn = document.getElementById("starting-btn");
 startQuizBtn.addEventListener("click",startQuiz);
