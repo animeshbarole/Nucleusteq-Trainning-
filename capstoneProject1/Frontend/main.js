@@ -53,13 +53,10 @@ function showScore()
         {
             feedback ="Excellent! You've got all the questions right!";
         }
-        else if(currentScore>=totalScore)
-            {
-                feedback = "Good job! Keep practicing to improve!";
-            }
-        else {
+       else {
             feedback = "You can do better. Please practice more!";
         }
+        
     finalFeedbackElement.textContent = feedback;
     
     const restartBtn =  document.getElementById("restart-btn");
@@ -132,10 +129,9 @@ const startTimer =((time)=>{
 
 function nextQuestionHandler()
 {
-    clearInterval(timer);  
+    
     Time =10;
     progressColor.style.width = "100%";
-    progress(Time);
     currentIndex++;
      if(currentIndex < questions.length)
      {
