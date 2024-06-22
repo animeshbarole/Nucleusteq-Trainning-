@@ -241,7 +241,7 @@ function showQuiz()
 
     totalQuestions.innerHTML =`
     <span class="q">${currentIndex+1} </span> / 
-    <span class="total-q">${questions.length}</span>
+    <span class="total-q">${totalScore}</span>
     `;
 
   
@@ -252,7 +252,40 @@ function showQuiz()
 }
 
 
+async function fetchCategories()
+{
+   
+      const categoryAPI = `http://localhost:8080/api/v1/categories/getAll`;
+      const selectElement =  document.getElementById("choose-categories");
+
+      try{
+        const categoryResponse =  await fetch(categoryAPI,{
+              method :'GET',
+        });
+        
+        const categoryData = await categoryResponse.json();
+
+        console.log(categoryData);
+
+        categoryData.forEach(category=>{
+            
+            const option = document.createElement('option');
+            option.value = category.id;
+            option.textContent = category.categoryName;
+            selectElement.appendChild(option);
+
+        });
+
+      }catch(error)
+      {
+        console.error("Error fetching quiz data:", error);
+        alert("Failed to load quiz data. Please try again later.");
+      }
+}
+
 async function startQuiz() {
+
+    
     const difficutly = document.getElementById("choose-difficutly").value;
     const category = document.getElementById("choose-categories").value;
 
@@ -271,14 +304,21 @@ async function startQuiz() {
         if (!QUIZ_API.ok) {
             throw new Error(`HTTP error! status: ${QUIZ_API.status}`);
         }
+        
 
         questions = await QUIZ_API.json();
         totalScore = questions.length;
+         
+        if(questions.length==0)
+        {
+            alert("No Questions in Such Category");
 
-        selectingPage.classList.add("hide");
-        quizPage.classList.remove("hide");
-
-        showQuiz();
+        }
+        else{
+           selectingPage.classList.add("hide");
+           quizPage.classList.remove("hide");
+           showQuiz();
+        }
 
     } catch (error) {
         console.error("Error fetching quiz data:", error);
@@ -286,7 +326,7 @@ async function startQuiz() {
     }
 }
 
-
+fetchCategories();
 const startQuizBtn = document.getElementById("starting-btn");
 startQuizBtn.addEventListener("click",startQuiz);
 

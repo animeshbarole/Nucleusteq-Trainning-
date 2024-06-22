@@ -32,6 +32,7 @@ public class CategoryController {
 
       }
 
+     @CrossOrigin
      @GetMapping("/getAll")
      public ResponseEntity<List<Category>> getCategories() {
 
