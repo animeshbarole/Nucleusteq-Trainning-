@@ -48,11 +48,15 @@ function showScore()
     finalScoreElement.textContent = `Total Score : ${currentScore} / ${totalScore}`;
 
     let feedback ='';
-
+    const halfScoreThreshold = Math.floor(totalScore / 2);
     if(currentScore===totalScore)
         {
             feedback ="Excellent! You've got all the questions right!";
         }
+    else if(currentScore>=halfScoreThreshold)
+        {
+            feedback = "Great job! You answered most of the questions correctly."
+        }    
        else {
             feedback = "You can do better. Please practice more!";
         }
