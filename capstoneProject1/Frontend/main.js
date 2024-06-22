@@ -24,13 +24,13 @@ const progress =(value)=>{
      const percentage = (value/Time)*100;
      progressColor.style.width = `${percentage}%`;
       
-     if(value<= Time/2 )
-        {
-            progressColor.style.backgroundColor ="#FD5E53";
-        }
-        else{
-            progressColor.style.backgroundColor = "#8CBA51";
-        }
+     if (percentage <= 33.3) {
+        progressColor.style.backgroundColor = "#FD5E53"; // Red
+      } else if (percentage <= 66.6) {
+        progressColor.style.backgroundColor = "#FFA500"; // Orange
+      } else {
+        progressColor.style.backgroundColor = "#8CBA51"; // Green
+      }
      
      progressTxt.innerHTML = `${value}`;
  
@@ -294,19 +294,19 @@ async function startQuiz() {
         return;
     }
 
-    const API = `http://localhost:8080/api/v1/questions/filter?difficultyLevel=${difficutly}&categoryId=${category}`;
+    const questionsAPI = `http://localhost:8080/api/v1/questions/filter?difficultyLevel=${difficutly}&categoryId=${category}`;
 
     try {
-        const QUIZ_API = await fetch(API, {
+        const questionsResponse = await fetch(questionsAPI, {
             method: 'GET',
         });
 
-        if (!QUIZ_API.ok) {
-            throw new Error(`HTTP error! status: ${QUIZ_API.status}`);
+        if (!questionsResponse.ok) {
+            throw new Error(`HTTP error! status: ${questionsResponse.status}`);
         }
         
 
-        questions = await QUIZ_API.json();
+        questions = await questionsResponse.json();
         totalScore = questions.length;
          
         if(questions.length==0)
