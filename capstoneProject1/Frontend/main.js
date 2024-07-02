@@ -269,7 +269,7 @@ async function fetchCategories()
         
         const categoryData = await categoryResponse.json();
 
-        console.log(categoryData);
+        
 
         categoryData.forEach(category=>{
             
