@@ -1,17 +1,12 @@
 import { useState } from "react";
 
-const ExpensesList = () => {
+const ExpensesList = ({expenses,deleteExpense}) => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [expenses, setExpenses] = useState([
-    { id: 1, name: "Food", amount: "₹100" },
-    { id: 2, name: "Transport", amount: "₹50" },
-    { id: 3, name: "Entertainment", amount: "₹200" },
-    // Add more items here
-  ]);
+
   const [filteredExpenses, setFilteredExpenses] = useState(expenses);
 
   const handleDelete = (id) => {
-    setExpenses(expenses.filter((expense) => expense.id !== id));
+    deleteExpense(id);
     setFilteredExpenses(filteredExpenses.filter((expense) => expense.id !== id));
   };
 
@@ -42,11 +37,16 @@ const ExpensesList = () => {
         </div>
         <div className="expenseList">
           {filteredExpenses.length===0 ?(
-            <p>No Expenses Found</p>
+            <p>No Expenses Found </p>
           ):(
           <ul>
             {filteredExpenses.map((expense) => (
-              <li key={expense.id} className="expenseItem">
+              <li 
+              key={expense.id} 
+              className="expenseItem"
+              style={{
+                borderColor: expense.type === "Income" ? "lightgreen" : "lightcoral",
+              }}>
                 {expense.name} - {expense.amount}
                 <button
                   className="deleteButton"
