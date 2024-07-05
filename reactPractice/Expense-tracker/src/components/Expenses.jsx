@@ -1,9 +1,12 @@
 
 
-const Expenses = () => {
+const Expenses = ({income,expense}) => {
+  
+ 
+
+
+
   return (
-
-
     <div className="border-transcation">
     <div className="totalTransaction">
          
@@ -13,7 +16,7 @@ const Expenses = () => {
              </div>
              <div className="money">
                
-               <span>₹2000</span>
+               <span>₹{income}</span>
              </div>
          </div>
          <hr/>
@@ -22,7 +25,7 @@ const Expenses = () => {
                  Expense
                </div>
                <div className="money">
-                   <span>₹2000</span>
+                   <span>₹{expense}</span>
                </div>
          </div>
 
