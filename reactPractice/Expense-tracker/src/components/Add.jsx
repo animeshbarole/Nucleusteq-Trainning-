@@ -5,8 +5,17 @@ const Add = ({ addExpense ,hideAddForm}) => {
   const [amount, setAmount] = useState(0);
   const [type, setType] = useState("Expense");
 
+  
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
+     
+    if(name==""||amount==0)
+    {
+      return alert("Please Enter the Details ");
+    }
+
     addExpense(name, amount ,type);
     setName("");
     setAmount(0);

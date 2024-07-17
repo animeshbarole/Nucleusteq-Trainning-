@@ -1,4 +1,4 @@
-const Header = ({ onButtonClick }) => {
+const Header = ({ onButtonClick,balance}) => {
   return (
     <div className="header">
       <div className="heading">
@@ -8,7 +8,7 @@ const Header = ({ onButtonClick }) => {
       <div className="balance-div">
         <div className="balance">
           <h5>Balance</h5>
-          <span>₹ 2000</span>
+          <span>₹{balance}</span>
         </div>
         <div className="buttondiv">
           <button onClick={onButtonClick}>Add</button>

@@ -47,7 +47,7 @@ const ExpensesList = ({expenses,deleteExpense}) => {
               style={{
                 borderColor: expense.type === "Income" ? "lightgreen" : "lightcoral",
               }}>
-                {expense.name} - {expense.amount}
+                {expense.name} - ₹{expense.amount}
                 <button
                   className="deleteButton"
                   onClick={() => handleDelete(expense.id)}
